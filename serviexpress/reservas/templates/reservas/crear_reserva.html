@@ -2,7 +2,7 @@
 {% block content %}
 <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
     <h2 class="text-2xl font-bold mb-6">Reservar {{ servicio.nombre }}</h2>
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
         <div class="mb-4">
             <label class="block mb-2">Fecha y Hora</label>

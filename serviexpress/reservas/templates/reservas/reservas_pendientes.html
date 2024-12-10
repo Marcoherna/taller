@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservas Pendientes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Reservas Pendientes</h1>
+    
+    {% if reservas %}
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Cliente</th>
+                    <th>Servicio</th>
+                    <th>Fecha de Reserva</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ reserva.cliente.username }}</td>
+                    <td>{{ reserva.servicio.nombre }}</td>
+                    <td>{{ reserva.fecha_reserva|date:"d/m/Y H:i" }}</td>
+                    <td>{{ reserva.estado }}</td>
+                    <td>
+                        <a href="{% url 'reservas:completar_reserva' reserva.id %}" class="btn btn-success btn-sm" 
+                           onclick="return confirm('¿Estás seguro de marcar esta reserva como completada?');">
+                            Completar
+                        </a>
+                        <a href="{% url 'reservas:cancelar_reserva' reserva.id %}" class="btn btn-danger btn-sm" 
+                           onclick="return confirm('¿Estás seguro de cancelar esta reserva?');">
+                            Cancelar
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-warning">No hay reservas pendientes en este momento.</p>
+    {% endif %}
+</div>
+{% endblock %}
