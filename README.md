@@ -1,0 +1,6 @@
+Crear el entorno virtual con "python -m venv nombredelvenv"
+Activar el entorno virtual en windows ".\nombredelvenv\Scripts\Activate.ps1" o en linux "source nombredelvenv/bin/activate"
+Ya dentro del entorno aactualizar pip con "pip install --upgrade pip"
+Luego instalar django con "pip install django"
+Ahora moverse a la carpeta con "cd serviexpress"
+Luego correr el server con "python manage.py runserver"
