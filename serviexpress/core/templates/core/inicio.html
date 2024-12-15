@@ -15,15 +15,36 @@
     </div>
     {% else %}
     <div>
-        <p>Hola {{ user.username }}, ¿En qué podemos ayudarte hoy?</p>
-        <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
-            Ver Servicios
-        </a>
+        <p>¿En qué podemos ayudarte hoy?</p>
+        <!-- <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+            Ver Servicios</a> -->
         {% if user.rol == 'empleado' %}
+            <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Ver Servicios</a>
             <a href="{% url 'servicios:crear' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
-                Crear servicio
-            </a>
+                Crear servicio</a>
+            <a href="{% url 'reservas:pendientes' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Reservas Pendientes</a>
         {% endif %}
+
+        {% if user.rol == 'cliente' %}
+            <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Ver Servicios</a>
+            <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Servicios</a>
+            <a href="{% url 'reservas:historial' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Mis Reservas</a>
+        {% endif %}
+
+        {% if user.rol == 'administrador' %}
+            <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Ver Servicios</a>
+            <a href="{% url 'servicios:admin' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Gestionar Servicios</a>
+            <a href="{% url 'reservas:informes' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">
+                Informes</a>
+        {% endif %}
+
     </div>
     {% endif %}
 </div>

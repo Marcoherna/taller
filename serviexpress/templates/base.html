@@ -6,26 +6,19 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+    
     <nav class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <a href="/" class="text-xl font-bold">ServiExpress</a>
             <div class="flex space-x-4">
                 {% if user.is_authenticated %}
-                    {% if user.rol == 'cliente' %}
-                        <a href="{% url 'servicios:lista' %}" class="hover:text-blue-200">Servicios</a>
-                        <a href="{% url 'reservas:historial' %}" class="hover:text-blue-200">Mis Reservas</a>
-                    {% endif %}
-                    
-                    {% if user.rol == 'empleado' %}
-                        <a href="{% url 'reservas:pendientes' %}" class="hover:text-blue-200">Reservas Pendientes</a>
-                    {% endif %}
-                    
+
                     {% if user.rol == 'administrador' %}
                         <a href="{% url 'servicios:admin' %}" class="hover:text-blue-200">Gestionar Servicios</a>
                         <a href="{% url 'reservas:informes' %}" class="hover:text-blue-200">Informes</a>
                     {% endif %}
                     
-                    <span>{{ user.username }} ({{ user.get_rol_display }})</span>
+                    <span>Bienvenido: {{ user.username }}</span>
                     <a href="{% url 'logout' %}" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600">Cerrar Sesión</a>
                 {% else %}
                     <a href="{% url 'login' %}" class="hover:text-blue-200">Iniciar Sesión</a>
