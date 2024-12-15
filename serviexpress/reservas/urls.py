@@ -10,9 +10,9 @@ from .views import (
 app_name = 'reservas'
 
 urlpatterns = [
-    path('crear/<int:servicio_id>/', crear_reserva, name='crear'),
-    path('historial/', historial_reservas, name='historial'),
-    path('pendientes/', reservas_pendientes, name='pendientes'),
-    path('cancelar/<int:reserva_id>/', cancelar_reserva, name='cancelar'),
-    path('informes/', informe_ventas, name='informes'),
+    path('crear/<int:servicio_id>/', crear_reserva, name='crear'), # agregado para crera reservas
+    path('historial/', historial_reservas, name='historial'), # agregado para mostrar historial_reservas.html
+    path('pendientes/', reservas_pendientes, name='pendientes'), # agregado para mostrar reservas_pendientes.html
+    path('cancelar/<int:reserva_id>/', cancelar_reserva, name='cancelar'), # agregado para mostrar cancelaciones
+    path('informes/', informe_ventas, name='informes'), # agregado para mostrar informe de ventas
 ]

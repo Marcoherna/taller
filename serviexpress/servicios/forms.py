@@ -1,12 +1,12 @@
 from django import forms
 from .models import Producto, Servicio
 
-class ProductoForm(forms.ModelForm):
+class ProductoForm(forms.ModelForm): # agregado forma producto
     class Meta:
         model = Producto
         fields = ['nombre', 'precio', 'stock']
 
-class ServicioForm(forms.ModelForm):
+class ServicioForm(forms.ModelForm): # agregado forma del formulario servicio
     productos_requeridos = forms.ModelMultipleChoiceField(
         queryset=Producto.objects.all(),
         widget=forms.CheckboxSelectMultiple

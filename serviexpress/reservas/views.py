@@ -4,8 +4,8 @@ from django.contrib import messages
 from .models import Reserva, Servicio
 from .forms import ReservaForm
 
-@login_required
-def crear_reserva(request, servicio_id):
+@login_required # agregado por que requiere del inicio de sesion
+def crear_reserva(request, servicio_id): # agregado para crear una reserva.
     servicio = get_object_or_404(Servicio, pk=servicio_id)
     if request.method == 'POST':
         form = ReservaForm(request.POST)
@@ -20,18 +20,18 @@ def crear_reserva(request, servicio_id):
         form = ReservaForm()
     return render(request, 'reservas/crear_reserva.html', {'servicio': servicio, 'form': form})
 
-@login_required
-def historial_reservas(request):
+@login_required # agregado por que requiere del inicio de sesion
+def historial_reservas(request): # agregado para mostrar una reserva
     reservas = Reserva.objects.filter(cliente=request.user)
     return render(request, 'reservas/historial_reservas.html', {'reservas': reservas})
 
-@login_required
-def reservas_pendientes(request):
+@login_required # agregado por que requiere del inicio de sesion
+def reservas_pendientes(request): # agregado para mostrar una reserva pendinet
     reservas = Reserva.objects.filter(estado='pendiente')
     return render(request, 'reservas/reservas_pendientes.html', {'reservas': reservas})
 
-@login_required
-def cancelar_reserva(request, reserva_id):
+@login_required # agregado por que requiere del inicio de sesion
+def cancelar_reserva(request, reserva_id): # agregado para cancelar una reserva
     reserva = get_object_or_404(Reserva, pk=reserva_id)
     if reserva.cliente == request.user and reserva.estado == 'pendiente':
         reserva.estado = 'cancelada'
@@ -39,8 +39,8 @@ def cancelar_reserva(request, reserva_id):
         messages.success(request, 'Reserva cancelada exitosamente')
     return redirect('reservas:historial')
 
-@login_required
-def informe_ventas(request):
+@login_required # agregado por que requiere del inicio de sesion
+def informe_ventas(request): # agregado para mostar las ventas de ...
     reservas = Reserva.objects.filter(estado='completada')
     total_ventas = sum(reserva.servicio.precio for reserva in reservas)
     return render(request, 'reservas/informe_ventas.html', {

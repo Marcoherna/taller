@@ -1,0 +1,8 @@
+generar físicamente la tabla
+python manage.py makemigrations
+python manage.py migrate
+
+
+crud: http://127.0.0.1:8000/admin/
+Usuario: admin
+pass: enlace23

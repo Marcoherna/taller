@@ -4,7 +4,7 @@ from .models import Usuario
 from django.core.validators import RegexValidator, validate_email
 from django.core.exceptions import ValidationError
 
-class RegistroForm(UserCreationForm):
+class RegistroForm(UserCreationForm):  # agregado forma del formulatrio registro de usuario
     class Meta:
         model = Usuario
         fields = ['username', 'email', 'password1', 'password2', 'rol', 'telefono']

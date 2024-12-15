@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RegistroForm
 
-def registro_usuario(request):
+def registro_usuario(request): # agregado para validar usuarios
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
@@ -17,9 +17,9 @@ def registro_usuario(request):
         form = RegistroForm()
     return render(request, 'usuarios/registro.html', {'form': form})
 
-def acceso_denegado(request):
+def acceso_denegado(request): # agregado para denegar el acceso
     return render(request, 'usuarios/acceso_denegado.html', status=403)
     
-def logout_view(request):
+def logout_view(request): # agregado para apuntar al inicio al salir
     logout(request)
     return redirect('inicio')

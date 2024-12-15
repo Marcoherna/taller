@@ -3,7 +3,7 @@ from .models import Reserva
 from django.utils import timezone
 
 
-class ReservaForm(forms.ModelForm):
+class ReservaForm(forms.ModelForm): # agregado forma reserva
     class Meta:
         model = Reserva
         fields = ['servicio', 'fecha']

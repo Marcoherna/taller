@@ -4,5 +4,5 @@ from .models import Reserva, Boleta
 # Register your models here.
 
 
-admin.site.register(Reserva)
-admin.site.register(Boleta)
+admin.site.register(Reserva) # agregado el registro de modelo reserva
+admin.site.register(Boleta) # agregado el registro de modelo boleta

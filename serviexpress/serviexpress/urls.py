@@ -5,8 +5,8 @@ from usuarios.views import acceso_denegado
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('usuarios/', include('usuarios.urls')),
-    path('servicios/', include(('servicios.urls', 'servicios'), namespace='servicios')),
-    path('reservas/', include(('reservas.urls', 'reservas'), namespace='reservas')),
-    path('acceso-denegado/', acceso_denegado, name='acceso_denegado'),
+    path('usuarios/', include('usuarios.urls')), # agregado
+    path('servicios/', include(('servicios.urls', 'servicios'), namespace='servicios')), # agregado
+    path('reservas/', include(('reservas.urls', 'reservas'), namespace='reservas')), # agregado
+    path('acceso-denegado/', acceso_denegado, name='acceso_denegado'), # agregado
 ]
