@@ -4,7 +4,7 @@
     <h1 class="text-4xl font-bold mb-6">Bienvenido a ServiExpress</h1>
     <p class="text-xl mb-8">Tu taller mecánico de confianza</p>
     
-    {% if not user.is_authenticated %}
+    <!-- {% if not user.is_authenticated %}
     <div class="flex justify-center space-x-4">
         <a href="{% url 'login' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
             Iniciar Sesión
@@ -13,7 +13,7 @@
             Registrarse
         </a>
     </div>
-    {% else %}
+    {% else %} -->
     <div>
         <p>¿En qué podemos ayudarte hoy?</p>
         <!-- <a href="{% url 'servicios:lista' %}" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 inline-block mt-4">

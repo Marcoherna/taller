@@ -6,44 +6,56 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    
-    <nav class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-xl font-bold">ServiExpress</a>
-            <div class="flex space-x-4">
-                {% if user.is_authenticated %}
-
-                    {% if user.rol == 'administrador' %}
-                        <a href="{% url 'servicios:admin' %}" class="hover:text-blue-200">Gestionar Servicios</a>
-                        <a href="{% url 'reservas:informes' %}" class="hover:text-blue-200">Informes</a>
+    <head>
+        <nav class="bg-blue-600 text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="/" class="text-xl font-bold">ServiExpress</a>
+                <div class="flex space-x-4">
+                    {% if user.is_authenticated %}
+                        {% if user.rol == 'administrador' %}
+                            <a href="{% url 'servicios:admin' %}" class="hover:text-blue-200">Gestionar Servicios</a>
+                            <a href="{% url 'reservas:informes' %}" class="hover:text-blue-200">Informes</a>
+                        {% endif %}
+                        
+                        <span>Bienvenido: {{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600">Cerrar Sesión</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="hover:text-blue-200">Iniciar Sesión</a>
+                        <a href="{% url 'registro' %}" class="bg-green-500 px-3 py-1 rounded hover:bg-green-600">Registrarse</a>
                     {% endif %}
-                    
-                    <span>Bienvenido: {{ user.username }}</span>
-                    <a href="{% url 'logout' %}" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600">Cerrar Sesión</a>
-                {% else %}
-                    <a href="{% url 'login' %}" class="hover:text-blue-200">Iniciar Sesión</a>
-                    <a href="{% url 'registro' %}" class="bg-green-500 px-3 py-1 rounded hover:bg-green-600">Registrarse</a>
-                {% endif %}
+                </div>
             </div>
+        </nav>
+    </head>
+    <main>
+        <div class="container mx-auto mt-8 px-4">
+            {% if messages %}
+                <div class="mb-4">
+                    {% for message in messages %}
+                        <div class="{% if message.tags %}alert alert-{{ message.tags }}{% endif %} 
+                                    bg-{{ message.tags|default:'blue' }}-100 
+                                    border border-{{ message.tags|default:'blue' }}-400 
+                                    text-{{ message.tags|default:'blue' }}-700 px-4 py-3 rounded relative" 
+                             role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+    
+            {% block content %}{% endblock %}
         </div>
-    </nav>
-
-    <div class="container mx-auto mt-8 px-4">
-        {% if messages %}
-            <div class="mb-4">
-                {% for message in messages %}
-                    <div class="{% if message.tags %}alert alert-{{ message.tags }}{% endif %} 
-                                bg-{{ message.tags|default:'blue' }}-100 
-                                border border-{{ message.tags|default:'blue' }}-400 
-                                text-{{ message.tags|default:'blue' }}-700 px-4 py-3 rounded relative" 
-                         role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        {% block content %}{% endblock %}
-    </div>
+    </main>
+    <footer class="justify-content-center">
+        <div class="col">
+            <ul class=""> <!--centrer, para centrar los 3 iconos-->
+                <p><a href=""> <img src="" width="50"></a> | 2024 | Mecanica | Taller mecanico Serviexpress |</p>
+                <p>Visitanos / Siguenos</p>
+                <a class="" href="https://www.facebook.com/?locale=es_LA"><i class="">facebook - </i></a>
+                <a class="" href="https://www.instagram.com/"><i class="">instagram - </i></a>
+                <a class="" href="https://twitter.com/?lang=es"><i class="">twitter</i></a>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
