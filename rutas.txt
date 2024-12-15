@@ -1,0 +1,89 @@
+taller/Serviexpress/
+├── core/
+│   ├── __pycache__
+│   ├── migrations/
+│   │   ├── __pycache__
+│   │   └── __init__.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   ├── tec2.jpg
+│   │   │   ├── tec2.jpg
+│   │   │   └── tec3.jpg
+│   ├── templates/core/
+│   │   └── inicio.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── reservas/
+│   ├── __pycache__
+│   ├── migrations/
+│   │   ├── __pycache__
+│   │   ├── __init__.py
+│   │   ├── 0001_initial.py
+│   │   └── 0002_initial.py
+│   ├── templates/reservas/
+│   │   ├── crear_reserva.html
+│   │   ├── historial_reserva.html
+│   │   └── reservas_pendientes.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── servicios/
+│   ├── __pycache__
+│   ├── migrations/
+│   │   ├── __pycache__
+│   │   └── __init__.py
+│   ├── templates/servicios/
+│   │   ├── crear_servicio.html
+│   │   └── lista.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── Serviexpress/
+│   ├── __pycache__
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── templates/
+│   └── base.html
+├── usuarios/
+│   ├── __pycache__
+│   ├── migrations/
+│   │   ├── __pycache__
+│   │   ├── __init__.py
+│   │   └── 0001_initial.py
+│   ├── templates/usuarios/
+│   │   ├── acceso_denegado.html
+│   │   ├── login.html
+│   │   ├── logout.html
+│   │   └── registro.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── decorators.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── permissions.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── db.sqlite3
+└── manage.py
+taller/
+├── .gitignore
