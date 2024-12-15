@@ -1,0 +1,13 @@
+# Entorno virtual
+/nombredelvenv
+
+
+# Archivos de configuración
+#*.env
+#.env
+
+# Archivos de bases de datos
+
+#*.sqlite3
+
+#Enviroments
