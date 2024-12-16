@@ -76,12 +76,12 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-AUTH_PASSWORD_VALIDATORS = [
-    { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    { 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    { 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
-]
+#AUTH_PASSWORD_VALIDATORS = [
+#    { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',}, #contrasañe diferente al nombre de usuario
+#    { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',}, # contraseñas tengan una longitud mínima, defecto 8
+#    { 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',}, # Evita contraseñas que son demasiado comunes o predecibles (como "123456", "password", "admin123", etc.).
+#    { 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',}, #Evita que las contraseñas sean únicamente numéricas
+#]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -104,3 +104,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Redireccion de login y logout
 LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'inicio'
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
