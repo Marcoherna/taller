@@ -12,7 +12,7 @@ def registro_usuario(request): # agregado para validar usuarios
             messages.success(request, 'Registro exitoso')
             return redirect('inicio')
         else:
-            messages.error(request, f'Error en el registro: {form.errors}')
+            messages.error(request,'Error en el registro ')
     else:
         form = RegistroForm()
     return render(request, 'usuarios/registro.html', {'form': form})
