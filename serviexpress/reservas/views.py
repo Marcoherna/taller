@@ -4,14 +4,14 @@ from django.contrib import messages
 from .models import Reserva, Servicio
 from .forms import ReservaForm
 
+
 @login_required # agregado por que requiere del inicio de sesion
 def crear_reserva(request, servicio_id): # agregado para crear una reserva.
     servicio = get_object_or_404(Servicio, pk=servicio_id)
     if request.method == 'POST':
         form = ReservaForm(request.POST)
         if form.is_valid():
-            reserva = form.save(commit=False)
-            reserva.cliente = request.user
+            reserva = form
             reserva.servicio = servicio
             reserva.save()
             messages.success(request, 'Reserva creada exitosamente')
@@ -47,3 +47,12 @@ def informe_ventas(request): # agregado para mostar las ventas de ...
         'reservas': reservas,
         'total_ventas': total_ventas
     })
+
+@login_required # agregado por que requiere del inicio de sesion
+def completar_reserva(request, reserva_id): # agregado para cancelar una reserva
+    reserva = get_object_or_404(Reserva, pk=reserva_id)
+    if reserva.cliente == request.user and reserva.estado == 'pendiente':
+        reserva.estado = 'aceptada'
+        reserva.save()
+        messages.success(request, 'Reserva aceptada exitosamente')
+    return redirect('reservas:historial')
